@@ -10,4 +10,4 @@ ADD . /app
 EXPOSE 3128
 
 RUN bash setup-squid.sh
-ENTRYPOINT service squid start && tail -f /var/log/squid/access.log
+ENTRYPOINT service squid start && sleep 10 && tail -f /var/log/squid/access.log
