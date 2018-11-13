@@ -25,6 +25,12 @@ Contains an Squid Forward Proxy and a FileBeat that ships the proxy access log t
 Run it with:
 `docker run -p 3128:3128 --name proxy --network mynet forward-proxy`
 
+## Using a Proxy via iptables/redsocks
+Allows any application to use a proxy transparently without any app code change.
+It uses iptables to forward the traffic to a local port and redsocks to connect to a remote squid proxy.
+
+Run it with:
+ `docker run -i -t  --network mynet --privileged -e PROXY_SERVER=proxy -e PROXY_PORT=3128 proxy-via-iptables`
 
 ## Proxy client test
 A simple script that will randomly visit some of the urls from the Moz's list of the top 500 domains and pages on the web ( https://moz.com/top500 ) using a proxy.
