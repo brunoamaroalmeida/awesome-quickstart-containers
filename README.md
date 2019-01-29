@@ -11,6 +11,22 @@ Contains an Elastic Search, Kibana and LogStash with pretty much the default set
 Run it with:
 `docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 --name elk --network mynet elastic`
 
+## Splunk
+Has Splunk Entreprise with free license (500Mb indexing / day).
+Note: There is no persistence, ie, any data (indexes, configurations, etc) is deleted once the container stops. Do not use it for staging/production workloads.
+
+Mount:
+You can mount a local host directory to enable a easier access to data for indexing
+
+Exposed Port:
+The Web UI runs on 8000 and  HTTP Collector on 8088.
+
+Credentials:
+Default admin/changeme are enable.
+
+Run it with:
+`docker run -p 8000:8000 -p 8088:8088 --mount type=bind,source=/mydir/dump/,target=/app splunk`
+
 
 ## Squid Proxy
 Contains an Squid Forward Proxy ready to use.
