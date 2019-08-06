@@ -12,7 +12,7 @@ echo "Restarting redsocks and redirecting traffic via iptables"
 iptables -t nat -A OUTPUT  -p tcp --dport 21 -j REDIRECT --to-port 12345
 
 # Run app
-echo "Testing ftp access using: ftp://ftp.dei.uc.pt/"
-curl ftp://ftp.dei.uc.pt/
+echo "Testing ftp access using: ftp://speedtest.tele2.net "
+curl  ftp://speedtest.tele2.net
 
 while true; do sleep 1000; done
